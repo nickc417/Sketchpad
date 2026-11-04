@@ -13,4 +13,6 @@ name = "Eraser"
 icon = ExtResource("2_334jt")
 handler = ExtResource("1_8hcur")
 handler_bar = ExtResource("2_kvqie")
+cursor = ExtResource("2_334jt")
+cursor_h = Vector2(13, 13)
 metadata/_custom_type_script = "uid://cpnarfu6qxy4c"

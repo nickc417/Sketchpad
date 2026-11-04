@@ -15,14 +15,21 @@ var touch_gesture_active: bool = false
 var emulated_touch_pending: bool = false
 var emulated_touch_start: Vector2
 var emulated_touch_stroke_active: bool = false
+var on_canvas: bool = false
 var current_tool: Tool:
 	set(value):
+		if current_tool:
+			current_tool.reset_cursor()
 		current_tool = value
+		if current_tool and on_canvas:
+			current_tool.set_cursor()
 		tool_changed.emit(value)
 
 
 func _ready() -> void:
 	canvas.canvas_input.connect(_handle_canvas_input)
+	canvas.cursor_entered.connect(_on_canvas_cursor_entered)
+	canvas.cursor_exited.connect(_on_canvas_cursor_exited)
 	canvas.camera.touch_gesture_started.connect(_on_touch_gesture_started)
 	canvas.camera.touch_gesture_ended.connect(_on_touch_gesture_ended)
 
@@ -136,3 +143,15 @@ func _on_touch_gesture_ended() -> void:
 	touch_gesture_active = false
 	emulated_touch_pending = false
 	emulated_touch_stroke_active = false
+
+
+func _on_canvas_cursor_entered() -> void:
+	on_canvas = true
+	if current_tool:
+		current_tool.set_cursor()
+
+
+func _on_canvas_cursor_exited() -> void:
+	on_canvas = false
+	if current_tool:
+		current_tool.reset_cursor()

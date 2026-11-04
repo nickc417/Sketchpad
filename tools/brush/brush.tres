@@ -13,4 +13,6 @@ name = "Brush"
 icon = ExtResource("2_ntkw0")
 handler = ExtResource("1_l7qst")
 handler_bar = ExtResource("2_20kja")
+cursor = ExtResource("2_ntkw0")
+cursor_h = Vector2(13, 13)
 metadata/_custom_type_script = "uid://bll2l6cggbn7b"

@@ -7,6 +7,15 @@ signal settings_changed
 @export var icon: Texture2D = PlaceholderTexture2D.new()
 @export var handler: PackedScene
 @export var handler_bar: PackedScene
+@export var cursor: Texture2D
+@export var cursor_h: Vector2 = Vector2(8, 8)
+
+func set_cursor() -> void: ## Sets cursor to custom tool cursor.
+	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, cursor_h)
+
+
+func reset_cursor() -> void: ## Resets to default cursor.
+	Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)
 
 
 ## Triggers when the pointer is pressed down on the canvas. [br]
