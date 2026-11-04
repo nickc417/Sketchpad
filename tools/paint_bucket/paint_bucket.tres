@@ -12,4 +12,5 @@ name = "Paint Bucket"
 icon = ExtResource("2_362ot")
 handler = ExtResource("1_4fikb")
 handler_bar = ExtResource("2_ajtq2")
+cursor = ExtResource("2_362ot")
 metadata/_custom_type_script = "uid://bkfy5dxh8w0kk"

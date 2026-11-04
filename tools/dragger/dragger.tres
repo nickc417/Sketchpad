@@ -11,4 +11,5 @@ name = "Dragger"
 icon = ExtResource("2_y2hwo")
 handler = ExtResource("1_8fdjc")
 handler_bar = ExtResource("2_tp2mx")
+cursor = ExtResource("2_y2hwo")
 metadata/_custom_type_script = "uid://cmoaigxlt61kr"

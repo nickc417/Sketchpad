@@ -2,6 +2,8 @@ class_name Canvas
 extends Node2D
 
 signal canvas_input(event: InputEvent)
+signal cursor_entered
+signal cursor_exited
 
 @export var camera_movable: bool = false
 @export var camera: CanvasCamera
@@ -19,6 +21,8 @@ var _project: Project
 
 func _ready() -> void:
 	camera.movable = camera_movable
+	control_node.mouse_entered.connect(cursor_entered.emit)
+	control_node.mouse_exited.connect(cursor_exited.emit)
 
 
 func attach_project(project: Project) -> void:
